@@ -4,6 +4,11 @@ on:
   push:
     branches:
       - 'release-v*'
+  workflow_dispatch:
+
+# Required for uploading release assets (--publish always)
+permissions:
+  contents: write
 
 jobs:
   unix:
