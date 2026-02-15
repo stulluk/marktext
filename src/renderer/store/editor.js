@@ -958,7 +958,8 @@ const actions = {
     }
 
     // Change save status/save to file only when the markdown changed!
-    if (markdown !== oldMarkdown) {
+    // Use contentEqualsForSave so editor normalization (e.g. trailing newline) doesn't mark as unsaved.
+    if (!contentEqualsForSave(markdown, oldMarkdown)) {
       commit('SET_SAVE_STATUS', false)
 
       // Save file is auto save is enable and file exist on disk.
@@ -1301,6 +1302,17 @@ const adjustTrailingNewlines = (markdown, trimTrailingNewlineOption) => {
  */
 const trimTrailingNewlines = text => {
   return text.replace(/[\r?\n]+$/, '')
+}
+
+/**
+ * Normalize content for "semantic equality" so that editor normalization
+ * (e.g. Muya adding a trailing newline) does not mark the document as unsaved.
+ * Used to avoid "Save changes?" when the user made no real edits.
+ */
+const contentEqualsForSave = (a, b) => {
+  if (a === b) return true
+  const norm = s => (s || '').replace(/\r\n/g, '\n').replace(/[\r\n]+$/, '')
+  return norm(a) === norm(b)
 }
 
 /**
