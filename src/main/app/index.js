@@ -425,6 +425,12 @@ class App {
     registerKeyboardListeners()
     registerSpellcheckerListeners()
 
+    // Renderer can send logs to terminal (e.g. for Mermaid debug when DevTools not used)
+    ipcMain.on('mt::renderer-log', (e, ...args) => {
+      const msg = args.map(a => (typeof a === 'object' ? JSON.stringify(a) : String(a))).join(' ')
+      process.stdout.write(`[MarkText renderer] ${msg}\n`)
+    })
+
     ipcMain.on('app-create-editor-window', () => {
       this._createEditorWindow()
     })

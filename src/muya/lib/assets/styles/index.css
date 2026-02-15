@@ -772,6 +772,11 @@ figure.ag-active.ag-container-block > div.ag-container-preview {
   box-shadow: 0 2px 12px 0 rgba(0, 0, 0, .1);
 }
 
+/* Reserve space so the preview does not overlap the next block (fixes diagram-on-diagram overlap) */
+figure.ag-active.ag-container-block {
+  margin-bottom: min(80vh, 800px);
+}
+
 div.ag-html-preview {
   width: 100%;
 }

@@ -73,7 +73,7 @@
 </template>
 
 <script>
-import { shell } from 'electron'
+import { shell, ipcRenderer } from 'electron'
 import path from 'path'
 import log from 'electron-log'
 import { mapState } from 'vuex'
@@ -534,7 +534,8 @@ export default {
         imageAction: this.imageAction.bind(this),
         imagePathPicker: this.imagePathPicker.bind(this),
         clipboardFilePath: guessClipboardFilePath,
-        imagePathAutoComplete: this.imagePathAutoComplete.bind(this)
+        imagePathAutoComplete: this.imagePathAutoComplete.bind(this),
+        logToMain: (msg) => ipcRenderer.send('mt::renderer-log', String(msg))
       }
 
       if (/dark/i.test(theme)) {

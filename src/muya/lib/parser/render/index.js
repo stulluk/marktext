@@ -96,8 +96,18 @@ class StateRender {
   }
 
   async renderMermaid () {
+    const log = this.muya.options.logToMain
     if (this.mermaidCache.size) {
-      const mermaid = await loadRenderer('mermaid')
+      if (log) log(`mermaid: render start, cache size=${this.mermaidCache.size}`)
+      let mermaid
+      try {
+        mermaid = await loadRenderer('mermaid')
+        if (log) log('mermaid: loadRenderer ok')
+      } catch (err) {
+        if (log) log(`mermaid: loadRenderer failed: ${err && err.message ? err.message : err}`)
+        this.mermaidCache.clear()
+        return
+      }
       mermaid.initialize({
         securityLevel: 'strict',
         theme: this.muya.options.mermaidTheme
@@ -106,13 +116,20 @@ class StateRender {
         const { code } = value
         const target = document.querySelector(key)
         if (!target) {
+          if (log) log(`mermaid: target not found for ${key}`)
           continue
         }
         try {
           mermaid.parse(code)
+          target.classList.add('mermaid')
           target.innerHTML = sanitize(code, PREVIEW_DOMPURIFY_CONFIG, true)
-          mermaid.init(undefined, target)
+          const initResult = mermaid.init(undefined, target)
+          if (initResult && typeof initResult.then === 'function') {
+            await initResult
+          }
+          if (log) log(`mermaid: rendered ${key}`)
         } catch (err) {
+          if (log) log(`mermaid: init/parse error for ${key}: ${err && err.message ? err.message : err}`)
           target.innerHTML = '< Invalid Mermaid Codes >'
           target.classList.add(CLASS_OR_ID.AG_MATH_ERROR)
         }

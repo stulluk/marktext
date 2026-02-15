@@ -23,7 +23,7 @@ const toggleLayout = (win, type) => {
 }
 
 export const debugToggleDevTools = win => {
-  if (win && global.MARKTEXT_DEBUG) {
+  if (win && win.webContents) {
     win.webContents.toggleDevTools()
   }
 }

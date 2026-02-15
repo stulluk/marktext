@@ -71,20 +71,18 @@ export default function (keybindings) {
       click (item, focusedWindow) {
         actions.reloadImageCache(focusedWindow)
       }
-    }]
-  }
-
-  if (global.MARKTEXT_DEBUG) {
-    viewMenu.submenu.push({
+    }, {
       type: 'separator'
-    })
-    viewMenu.submenu.push({
+    }, {
       label: 'Show Developer Tools',
       accelerator: keybindings.getAccelerator('view.toggle-dev-tools'),
       click (item, win) {
         actions.debugToggleDevTools(win)
       }
-    })
+    }]
+  }
+
+  if (global.MARKTEXT_DEBUG) {
     viewMenu.submenu.push({
       label: 'Reload window',
       accelerator: keybindings.getAccelerator('view.dev-reload'),

@@ -269,6 +269,8 @@ export const MUYA_DEFAULT_OPTION = Object.freeze({
   sequenceTheme: 'hand', // hand or simple
   mermaidTheme: 'default', // dark / forest / default
   vegaTheme: 'latimes', // excel / ggplot2 / quartz / vox / fivethirtyeight / dark / latimes
+  /** Optional: (msg) => {} to send debug logs to main process stdout */
+  logToMain: null,
   hideQuickInsertHint: false,
   hideLinkPopup: false,
   autoCheck: false,

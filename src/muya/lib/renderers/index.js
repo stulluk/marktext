@@ -20,8 +20,9 @@ const loadRenderer = async (name) => {
         rendererCache.set(name, m.default)
         break
       case 'mermaid':
-        m = await import('mermaid/dist/mermaid.core.mjs')
-        rendererCache.set(name, m.default)
+        /* Mermaid 8.14.0: use ESM bundle so d3 is imported (not required); CJS mermaid.core.js breaks in packaged app */
+        m = await import('mermaid/dist/mermaid.esm.min.mjs')
+        rendererCache.set(name, m.default != null ? m.default : m)
         break
       case 'vega-lite':
         m = await import('vega-embed')
