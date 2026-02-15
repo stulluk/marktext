@@ -75,6 +75,12 @@ jobs:
           yarn run lint
           yarn run validate-licenses
 
+      - name: Fix Electron sandbox (Linux)
+        if: runner.os == 'Linux'
+        run: |
+          sudo chown root:root node_modules/electron/dist/chrome-sandbox
+          sudo chmod 4755 node_modules/electron/dist/chrome-sandbox
+
       - name: Run unit and E2E tests
         uses: GabrielBB/xvfb-action@v1
         with:
