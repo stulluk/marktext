@@ -1,0 +1,196 @@
+/**
+ * GitHub theme - Light application theme inspired by GitHub's markdown and UI.
+ * Editor and sidebar colors match GitHub's light appearance (#f6f8fa, #24292f, #0969da).
+ */
+:root {
+  /* GitHub blue for links and accents */
+  --themeColor: #0969da;
+  --themeColor90: rgba(9, 105, 218, .9);
+  --themeColor80: rgba(9, 105, 218, .8);
+  --themeColor70: rgba(9, 105, 218, .7);
+  --themeColor60: rgba(9, 105, 218, .6);
+  --themeColor50: rgba(9, 105, 218, .5);
+  --themeColor40: rgba(9, 105, 218, .4);
+  --themeColor30: rgba(9, 105, 218, .3);
+  --themeColor20: rgba(9, 105, 218, .2);
+  --themeColor10: rgba(9, 105, 218, .1);
+
+  --highlightColor: rgba(9, 105, 218, .12);
+  --selectionColor: rgba(9, 105, 218, .2);
+  --editorColor: #24292f;
+  --editorColor80: rgba(36, 41, 47, .8);
+  --editorColor60: rgba(36, 41, 47, .6);
+  --editorColor50: rgba(36, 41, 47, .5);
+  --editorColor40: rgba(36, 41, 47, .4);
+  --editorColor30: rgba(36, 41, 47, .3);
+  --editorColor10: rgba(36, 41, 47, .1);
+  --editorColor04: rgba(36, 41, 47, .04);
+  --editorBgColor: #ffffff;
+  --deleteColor: #cf222e;
+  --iconColor: rgba(36, 41, 47, .72);
+  --codeBgColor: rgba(175, 184, 193, 0.2);
+  --codeBlockBgColor: #f6f8fa;
+  --footnoteBgColor: rgba(31, 35, 40, .05);
+  --inputBgColor: rgba(31, 35, 40, .06);
+  --focusColor: var(--themeColor);
+
+  --buttonFontColor: var(--editorColor);
+  --buttonBgColor: #ffffff;
+  --buttonBorder: 1px solid #d0d7de;
+  --buttonShadow: none;
+  --buttonFontColorHover: var(--buttonFontColor);
+  --buttonBgColorHover: #f6f8fa;
+  --buttonBorderHover: var(--buttonBorder);
+  --buttonFontColorActive: var(--buttonFontColor);
+  --buttonBgColorActive: #ebecf0;
+  --buttonBorderActive: var(--buttonBorder);
+  --buttonFocusBorder: 1px solid var(--themeColor);
+
+  --buttonPrimaryFontColor: #ffffff;
+  --buttonPrimaryBgColor: #0969da;
+  --buttonPrimaryBorder: 1px solid rgba(31, 35, 40, .15);
+  --buttonPrimaryShadow: 0 1px 0 rgba(31, 35, 40, .04);
+  --buttonPrimaryFontColorHover: var(--buttonPrimaryFontColor);
+  --buttonPrimaryBgColorHover: #0550ae;
+  --buttonPrimaryBorderHover: var(--buttonPrimaryBorder);
+  --buttonPrimaryFontColorActive: var(--buttonPrimaryFontColor);
+  --buttonPrimaryBgColorActive: #0550ae;
+  --buttonPrimaryBorderActive: var(--buttonPrimaryBorder);
+  --buttonPrimaryFocusBorder: none;
+  --buttonPrimaryFocusShadow: 0 0 0 2px rgba(9, 105, 218, .3);
+  --tableBorderColor: #d0d7de;
+
+  --sideBarColor: #57606a;
+  --sideBarIconColor: #656d76;
+  --sideBarTitleColor: #24292f;
+  --sideBarTextColor: #656d76;
+  --sideBarBgColor: #f6f8fa;
+  --sideBarItemHoverBgColor: rgba(31, 35, 40, .06);
+  --itemBgColor: rgba(31, 35, 40, .04);
+
+  --floatFontColor: #24292f;
+  --floatBgColor: #ffffff;
+  --floatHoverColor: #f6f8fa;
+  --floatBorderColor: #d0d7de;
+  --maskColor: rgba(31, 35, 40, .15);
+  --editorAreaWidth: 750px;
+}
+
+.editor-tabs {
+  background: #f6f8fa !important;
+  box-shadow: none !important;
+}
+.editor-tabs:after {
+  position: absolute;
+  content: '';
+  border-bottom: 1px solid #d0d7de;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+}
+.editor-tabs ul.tabs-container:after {
+  position: absolute;
+  content: '';
+  border-bottom: 1px solid #d0d7de;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
+}
+.title-bar-editor-bg.tabs-visible {
+  background: #f6f8fa !important;
+}
+
+.tabs-container > li {
+  background: none !important;
+}
+.tabs-container > li.active {
+  border: 1px solid #d0d7de;
+  border-top: none;
+  border-bottom: none;
+  background: var(--floatBgColor) !important;
+}
+.tabs-container > li.active:after {
+  top: 0 !important;
+  bottom: auto !important;
+  background: var(--themeColor) !important;
+}
+
+/* ------------------------------------ */
+
+li.ag-paragraph {
+  color: var(--editorColor);
+}
+
+/*task list*/
+li.ag-task-list-item {
+  list-style-type: none;
+  position: relative;
+}
+li.ag-task-list-item > input[type=checkbox] {
+  position: absolute;
+  cursor: pointer;
+  width: 16px;
+  height: 16px;
+  top: .1em;
+  transform: rotate(-90deg);
+  margin: 0;
+  left: -24px;
+  transform-origin: center;
+  transition: all .2s ease;
+}
+li.ag-task-list-item > input.ag-checkbox-checked {
+  transform: rotate(0);
+  opacity: .5;
+}
+li.ag-task-list-item > input[type=checkbox]::before {
+  content: '';
+  width: 16px;
+  height: 16px;
+  box-sizing: border-box;
+  display: inline-block;
+  border: 2px solid var(--editorColor);
+  border-radius: 2px;
+  background-color: var(--editorBgColor);
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: all .2s ease;
+}
+li.ag-task-list-item > input.ag-checkbox-checked::before {
+  border: transparent;
+  background-color: var(--themeColor);
+}
+li.ag-task-list-item > input::after {
+  content: '';
+  transform: rotate(-45deg) scale(0);
+  width: 9px;
+  height: 5px;
+  border: 2px solid #fff;
+  border-top: none;
+  border-right: none;
+  position: absolute;
+  display: inline-block;
+  top: 1px;
+  left: 5px;
+  transition: all .2s ease;
+}
+li.ag-task-list-item > input.ag-checkbox-checked::after {
+  transform: rotate(-45deg) scale(1);
+}
+
+/*horizontal line*/
+p:not(.ag-active)[data-role="hr"]::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  display: block;
+  left: 50%;
+  top: 50%;
+  height: 2px;
+  box-sizing: border-box;
+  border: none;
+  border-bottom: 2px dashed var(--editorColor50);
+  transform: translateX(-50%) translateY(-50%);
+}

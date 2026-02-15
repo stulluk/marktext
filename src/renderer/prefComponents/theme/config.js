@@ -9,6 +9,12 @@ export const themes = [
     name: 'graphite'
   },
   {
+    name: 'github'
+  },
+  {
+    name: 'github-dark'
+  },
+  {
     name: 'material-dark'
   },
   {

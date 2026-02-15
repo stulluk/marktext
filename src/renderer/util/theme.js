@@ -1,5 +1,5 @@
 import { THEME_STYLE_ID, COMMON_STYLE_ID, DEFAULT_CODE_FONT_FAMILY, oneDarkThemes, railscastsThemes } from '../config'
-import { dark, graphite, materialDark, oneDark, ulysses } from './themeColor'
+import { dark, github, githubDark, graphite, materialDark, oneDark, ulysses } from './themeColor'
 import { isLinux } from './index'
 import elementStyle from 'element-ui/lib/theme-chalk/index.css'
 
@@ -72,6 +72,12 @@ export const addThemeStyle = theme => {
       break
     case 'graphite':
       themeStyleEle.innerHTML = patchTheme(graphite())
+      break
+    case 'github':
+      themeStyleEle.innerHTML = patchTheme(github())
+      break
+    case 'github-dark':
+      themeStyleEle.innerHTML = patchTheme(githubDark())
       break
     case 'one-dark':
       themeStyleEle.innerHTML = patchTheme(oneDark())

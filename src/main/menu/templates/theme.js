@@ -30,6 +30,22 @@ export default function (userPreference) {
         actions.selectTheme('graphite')
       }
     }, {
+      label: 'GitHub',
+      type: 'radio',
+      id: 'github',
+      checked: theme === 'github',
+      click (menuItem, browserWindow) {
+        actions.selectTheme('github')
+      }
+    }, {
+      label: 'GitHub Dark',
+      type: 'radio',
+      id: 'github-dark',
+      checked: theme === 'github-dark',
+      click (menuItem, browserWindow) {
+        actions.selectTheme('github-dark')
+      }
+    }, {
       label: 'Material Dark',
       type: 'radio',
       id: 'material-dark',
