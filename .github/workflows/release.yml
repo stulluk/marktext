@@ -35,7 +35,6 @@ jobs:
         with:
           node-version: 16
           check-latest: true
-          cache: false
 
       - name: Install build dependencies
         if: runner.os == 'Linux'
@@ -129,7 +128,6 @@ jobs:
         with:
           node-version: 16
           check-latest: true
-          cache: false
 
       # Workaround: Fix native build failure due to outdated node-gyp version.
       - name: Fix node-gyp
