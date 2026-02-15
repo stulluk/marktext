@@ -118,6 +118,9 @@ jobs:
           node-version: 16
           check-latest: true
 
+      - name: Setup MSBuild (for node-gyp / electron-rebuild)
+        uses: microsoft/setup-msbuild@v2
+
       # Workaround: Fix native build failure due to outdated node-gyp version.
       - name: Fix node-gyp
         run: |
