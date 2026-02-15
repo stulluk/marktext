@@ -18,7 +18,7 @@ jobs:
 
     strategy:
       matrix:
-        os: [macos-11, ubuntu-latest]
+        os: [ubuntu-latest]
 
     env:
       DISPLAY: ":99.0"
@@ -87,15 +87,7 @@ jobs:
           run: yarn run test
 
       - name: Build and release
-        run: |
-              if [ "$RUNNER_OS" == "Linux" ]; then
-                yarn run release:linux --publish always
-              elif [ "$RUNNER_OS" == "macOS" ]; then
-                yarn run release:mac --publish always
-              else
-                echo "$RUNNER_OS not supported"
-                exit 1
-              fi
+        run: yarn run release:linux --publish always
 
       - name: Calculate checksums
         if: runner.os == 'Linux'
@@ -104,15 +96,6 @@ jobs:
           sha256sum build/marktext-x86_64.AppImage
           sha256sum build/marktext-*.deb
           sha256sum build/marktext-*.rpm
-        shell: bash
-
-      - name: Calculate checksums
-        if: runner.os == 'macOS'
-        run: |
-          shasum -a 256 build/marktext-arm64-mac.zip
-          shasum -a 256 build/marktext-x64-mac.zip
-          shasum -a 256 build/marktext-arm64.dmg
-          shasum -a 256 build/marktext-x64.dmg
         shell: bash
 
   windows:
