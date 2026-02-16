@@ -159,7 +159,10 @@ jobs:
           key: ${{ runner.os }}-electron-builder-cache-v2-${{ hashFiles(format('{0}{1}', github.workspace, '\yarn.lock')) }}
 
       - name: Install dependencies
-        run: yarn install --check-files --frozen-lockfile
+        shell: cmd
+        run: |
+          call "C:\Program Files\Microsoft Visual Studio\2022\Enterprise\Common7\Tools\VsDevCmd.bat" -arch=amd64 -no_logo
+          yarn install --check-files --frozen-lockfile
 
       - name: Lint
         run: |
