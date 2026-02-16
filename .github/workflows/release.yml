@@ -121,6 +121,9 @@ jobs:
       - name: Setup MSBuild (for node-gyp / electron-rebuild)
         uses: microsoft/setup-msbuild@v2
 
+      - name: Setup MSVC (C++ compiler for node-gyp / electron-rebuild)
+        uses: ilammy/msvc-dev-cmd@v1
+
       # Workaround: Fix native build failure due to outdated node-gyp version.
       - name: Fix node-gyp
         run: |
