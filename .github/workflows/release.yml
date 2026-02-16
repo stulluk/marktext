@@ -89,6 +89,13 @@ jobs:
       - name: Build and release
         run: yarn run release:linux --publish always
 
+      - name: Publish release (CI creates draft by default)
+        run: |
+          VERSION=$(node -p "require('./package.json').version")
+          gh release edit "v$VERSION" --repo ${{ github.repository }} --draft=false
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
       - name: Calculate checksums
         if: runner.os == 'Linux'
         run: |
