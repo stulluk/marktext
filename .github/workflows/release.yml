@@ -107,6 +107,8 @@ jobs:
       MARKTEXT_IS_STABLE: 1
       MARKTEXT_EXIT_ON_ERROR: 1
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      # So node-gyp (used by electron-rebuild) finds Visual Studio 2022
+      GYP_MSVS_VERSION: "2022"
 
     steps:
       - name: Check out Git repository
@@ -130,6 +132,10 @@ jobs:
           npm install --global node-gyp@latest
           npm prefix -g | % {npm config set node_gyp "$_\node_modules\node-gyp\bin\node-gyp.js"}
           node-gyp install
+        shell: pwsh
+
+      - name: Configure node-gyp for VS2022
+        run: npm config set msvs_version 2022
         shell: pwsh
 
       - name: Cache node_modules
