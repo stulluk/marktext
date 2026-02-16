@@ -83,9 +83,6 @@
   <a href="french.md">
     <span>:fr:</span>
   </a>
-  <a href="tr.md">
-    <span>:tr:</span>
-  </a>
   <a href="spanish.md">
     <span>:es:</span>
   </a>

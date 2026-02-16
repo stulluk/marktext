@@ -160,7 +160,7 @@ const HUNSPELL_DICTIONARY_LANGUAGE_MAP = Object.freeze([{
   label: 'тоҷикӣ', // Tajik
   value: 'tg-TG'
 }, {
-  label: 'Türkçe', // Turkish
+  label: 'Turkish',
   value: 'tr-TR'
 }, {
   label: 'українська', // Ukrainian

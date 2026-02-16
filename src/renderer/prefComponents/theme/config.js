@@ -15,6 +15,9 @@ export const themes = [
     name: 'github-dark'
   },
   {
+    name: 'github-even-darker'
+  },
+  {
     name: 'material-dark'
   },
   {

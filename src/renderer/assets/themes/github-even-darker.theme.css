@@ -1,0 +1,204 @@
+/**
+ * GitHub Even Darker - Like GitHub Dark but with pure black (#000000) code blocks.
+ * Same base as GitHub Dark; code/code block backgrounds forced to black.
+ */
+:root {
+  --themeColor: #58a6ff;
+  --themeColor90: rgba(88, 166, 255, .9);
+  --themeColor80: rgba(88, 166, 255, .8);
+  --themeColor70: rgba(88, 166, 255, .7);
+  --themeColor60: rgba(88, 166, 255, .6);
+  --themeColor50: rgba(88, 166, 255, .5);
+  --themeColor40: rgba(88, 166, 255, .4);
+  --themeColor30: rgba(88, 166, 255, .3);
+  --themeColor20: rgba(88, 166, 255, .2);
+  --themeColor10: rgba(88, 166, 255, .1);
+
+  --highlightColor: rgba(88, 166, 255, .15);
+  --selectionColor: rgba(88, 166, 255, .25);
+  --editorColor: #c9d1d9;
+  --editorColor80: rgba(201, 209, 217, .8);
+  --editorColor60: rgba(201, 209, 217, .6);
+  --editorColor50: rgba(201, 209, 217, .5);
+  --editorColor40: rgba(201, 209, 217, .4);
+  --editorColor30: rgba(201, 209, 217, .3);
+  --editorColor10: rgba(201, 209, 217, .1);
+  --editorColor04: rgba(201, 209, 217, .04);
+  --editorBgColor: #0d1117;
+  --deleteColor: #f85149;
+  --iconColor: rgba(201, 209, 217, .72);
+  --codeBgColor: #000000;
+  --codeBlockBgColor: #000000;
+  --footnoteBgColor: rgba(201, 209, 217, .06);
+  --inputBgColor: rgba(22, 27, 34, .8);
+  --focusColor: var(--themeColor);
+
+  --buttonFontColor: #c9d1d9;
+  --buttonBgColor: #21262d;
+  --buttonBorder: 1px solid #30363d;
+  --buttonShadow: none;
+  --buttonFontColorHover: var(--buttonFontColor);
+  --buttonBgColorHover: #30363d;
+  --buttonBorderHover: var(--buttonBorder);
+  --buttonFontColorActive: var(--buttonFontColor);
+  --buttonBgColorActive: #161b22;
+  --buttonBorderActive: var(--buttonBorder);
+  --buttonFocusBorder: 1px solid #58a6ff;
+
+  --buttonPrimaryFontColor: #ffffff;
+  --buttonPrimaryBgColor: #238636;
+  --buttonPrimaryBorder: 1px solid rgba(201, 209, 217, .15);
+  --buttonPrimaryShadow: none;
+  --buttonPrimaryFontColorHover: var(--buttonPrimaryFontColor);
+  --buttonPrimaryBgColorHover: #2ea043;
+  --buttonPrimaryBorderHover: var(--buttonPrimaryBorder);
+  --buttonPrimaryFontColorActive: var(--buttonPrimaryFontColor);
+  --buttonPrimaryBgColorActive: #2ea043;
+  --buttonPrimaryBorderActive: var(--buttonPrimaryBorder);
+  --buttonPrimaryFocusBorder: none;
+  --buttonPrimaryFocusShadow: 0 0 0 2px rgba(88, 166, 255, .3);
+  --tableBorderColor: #30363d;
+
+  --sideBarColor: #8b949e;
+  --sideBarIconColor: #6e7681;
+  --sideBarTitleColor: #c9d1d9;
+  --sideBarTextColor: #8b949e;
+  --sideBarBgColor: #161b22;
+  --sideBarItemHoverBgColor: #21262d;
+  --itemBgColor: rgba(22, 27, 34, .6);
+
+  --floatFontColor: #c9d1d9;
+  --floatBgColor: #161b22;
+  --floatHoverColor: #21262d;
+  --floatBorderColor: #30363d;
+  --maskColor: rgba(13, 17, 23, .8);
+  --editorAreaWidth: 750px;
+}
+
+.editor-tabs {
+  background: #161b22 !important;
+  box-shadow: none !important;
+}
+.editor-tabs:after {
+  position: absolute;
+  content: '';
+  border-bottom: 1px solid #30363d;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+}
+.editor-tabs ul.tabs-container:after {
+  position: absolute;
+  content: '';
+  border-bottom: 1px solid #30363d;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
+}
+.title-bar-editor-bg.tabs-visible {
+  background: #161b22 !important;
+}
+
+.tabs-container > li {
+  background: none !important;
+}
+.tabs-container > li.active {
+  border: 1px solid #30363d;
+  border-top: none;
+  border-bottom: none;
+  background: var(--floatBgColor) !important;
+}
+.tabs-container > li.active:after {
+  top: 0 !important;
+  bottom: auto !important;
+  background: var(--themeColor) !important;
+}
+
+/* ------------------------------------ */
+
+li.ag-paragraph {
+  color: var(--editorColor);
+}
+
+/*task list*/
+li.ag-task-list-item {
+  list-style-type: none;
+  position: relative;
+}
+li.ag-task-list-item > input[type=checkbox] {
+  position: absolute;
+  cursor: pointer;
+  width: 16px;
+  height: 16px;
+  top: .1em;
+  transform: rotate(-90deg);
+  margin: 0;
+  left: -24px;
+  transform-origin: center;
+  transition: all .2s ease;
+}
+li.ag-task-list-item > input.ag-checkbox-checked {
+  transform: rotate(0);
+  opacity: .5;
+}
+li.ag-task-list-item > input[type=checkbox]::before {
+  content: '';
+  width: 16px;
+  height: 16px;
+  box-sizing: border-box;
+  display: inline-block;
+  border: 2px solid var(--editorColor);
+  border-radius: 2px;
+  background-color: var(--editorBgColor);
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: all .2s ease;
+}
+li.ag-task-list-item > input.ag-checkbox-checked::before {
+  border: transparent;
+  background-color: var(--themeColor);
+}
+li.ag-task-list-item > input::after {
+  content: '';
+  transform: rotate(-45deg) scale(0);
+  width: 9px;
+  height: 5px;
+  border: 2px solid #fff;
+  border-top: none;
+  border-right: none;
+  position: absolute;
+  display: inline-block;
+  top: 1px;
+  left: 5px;
+  transition: all .2s ease;
+}
+li.ag-task-list-item > input.ag-checkbox-checked::after {
+  transform: rotate(-45deg) scale(1);
+}
+
+/*horizontal line*/
+p:not(.ag-active)[data-role="hr"]::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  display: block;
+  left: 50%;
+  top: 50%;
+  height: 2px;
+  box-sizing: border-box;
+  border: none;
+  border-bottom: 2px dashed var(--editorColor50);
+  transform: translateX(-50%) translateY(-50%);
+}
+
+/* Override Prism one-dark hardcoded code block background so --codeBlockBgColor is used */
+:not(pre) > code[class*="language-"],
+pre:not(.CodeMirror-line),
+pre[class*="language-"],
+pre.ag-paragraph {
+  background: var(--codeBlockBgColor) !important;
+  border: none !important;
+}

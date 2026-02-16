@@ -46,6 +46,14 @@ export default function (userPreference) {
         actions.selectTheme('github-dark')
       }
     }, {
+      label: 'GitHub Even Darker',
+      type: 'radio',
+      id: 'github-even-darker',
+      checked: theme === 'github-even-darker',
+      click (menuItem, browserWindow) {
+        actions.selectTheme('github-even-darker')
+      }
+    }, {
       label: 'Material Dark',
       type: 'radio',
       id: 'material-dark',

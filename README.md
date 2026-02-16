@@ -82,9 +82,6 @@
   <a href="docs/i18n/french.md#readme">
     <span>:fr:</span>
   </a>
-  <a href="docs/i18n/tr.md#readme">
-    <span>:tr:</span>
-  </a>
   <a href="docs/i18n/spanish.md#readme">
     <span>:es:</span>
   </a>

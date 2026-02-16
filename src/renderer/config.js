@@ -14,4 +14,4 @@ export const DEFAULT_STYLE = Object.freeze({
 })
 
 export const railscastsThemes = Object.freeze(['dark', 'material-dark'])
-export const oneDarkThemes = Object.freeze(['one-dark', 'github-dark'])
+export const oneDarkThemes = Object.freeze(['one-dark', 'github-dark', 'github-even-darker'])

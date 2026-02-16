@@ -2,6 +2,7 @@ import darkTheme from '../assets/themes/dark.theme.css'
 import graphiteTheme from '../assets/themes/graphite.theme.css'
 import githubTheme from '../assets/themes/github.theme.css'
 import githubDarkTheme from '../assets/themes/github-dark.theme.css'
+import githubEvenDarkerTheme from '../assets/themes/github-even-darker.theme.css'
 import materialDarkTheme from '../assets/themes/material-dark.theme.css'
 import oneDarkTheme from '../assets/themes/one-dark.theme.css'
 import ulyssesTheme from '../assets/themes/ulysses.theme.css'
@@ -22,7 +23,12 @@ export const github = () => {
 }
 
 export const githubDark = () => {
-  return githubDarkTheme + '\n' + oneDarkPrismTheme
+  return oneDarkPrismTheme + '\n' + githubDarkTheme
+}
+
+export const githubEvenDarker = () => {
+  /* Prism first, then theme so our --codeBlockBgColor override wins */
+  return oneDarkPrismTheme + '\n' + githubEvenDarkerTheme
 }
 
 export const materialDark = () => {

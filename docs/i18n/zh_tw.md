@@ -84,9 +84,6 @@
   <a href="french.md#readme">
     <span>:fr:</span>
   </a>
-  <a href="tr.md#readme">
-    <span>:tr:</span>
-  </a>
   <a href="spanish.md#readme">
     <span>:es:</span>
   </a>
