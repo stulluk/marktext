@@ -1,6 +1,12 @@
 productName: "MarkText"
 appId: "com.github.marktext.marktext"
 
+# Publish to this repo (fork); omit to use package.json repository
+publish:
+  provider: github
+  owner: stulluk
+  repo: marktext
+
 asar: true
 asarUnpack:
 - "**/*.node"
