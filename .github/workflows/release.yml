@@ -167,10 +167,8 @@ jobs:
         run: node .electron-vue/postinstall.js
 
       - name: Rebuild native modules (VS dev environment)
-        shell: cmd
-        run: |
-          call "C:\Program Files\Microsoft Visual Studio\2022\Enterprise\Common7\Tools\VsDevCmd.bat" -arch=amd64 -no_logo
-          yarn run rebuild
+        shell: pwsh
+        run: cmd /c 'call "C:\Program Files\Microsoft Visual Studio\2022\Enterprise\Common7\Tools\VsDevCmd.bat" -arch=amd64 -no_logo && yarn run rebuild'
 
       - name: Lint fix
         run: yarn run lint:fix
